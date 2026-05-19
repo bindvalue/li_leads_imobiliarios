@@ -18,6 +18,10 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  },
   "devDependencies": {
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
