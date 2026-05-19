@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L.I Leads Imobiliários — Tráfego Pago para o Mercado Imobiliário</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --roxo: #1f0038;
+    --magenta: #ab12ae;
+    --amarelo: #fbc54f;
+    --laranja: #d54c2f;
+    --branco: #ffffff;
+    --cinza-claro: #f7f5fa;
+    --grad: linear-gradient(135deg, #ab12ae 0%, #d54c2f 50%, #fbc54f 100%);
+    --grad-dark: linear-gradient(135deg, #1f0038 0%, #ab12ae 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(171,18,174,0.1);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-cta {
+    background: var(--grad);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(171,18,174,0.3);
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(171,18,174,0.45);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 6% 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(171,18,174,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(251,197,79,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(171,18,174,0.08);
+    border: 1px solid rgba(171,18,174,0.2);
+    color: var(--magenta);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--magenta);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--roxo);
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+  }
+
+  h1 .accent {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--grad);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(171,18,174,0.35);
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(171,18,174,0.5);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--roxo);
+    color: var(--roxo);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .btn-secondary:hover {
+    background: var(--roxo);
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* HERO CARD VISUAL */
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-card {
+    background: var(--roxo);
+    border-radius: 24px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(31,0,56,0.25);
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: var(--grad);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .hero-card-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 32px;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .metric {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  .metric-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(251,197,79,0.15);
+    border: 1px solid rgba(251,197,79,0.3);
+    color: var(--amarelo);
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 100px 6%;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--roxo);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 540px;
+    font-weight: 300;
+  }
+
+  /* NÚMEROS / PROVA */
+  .numbers {
+    background: var(--cinza-claro);
+    padding: 60px 6%;
+  }
+
+  .numbers-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .number-item {
+    text-align: center;
+    padding: 48px 24px;
+    background: #fff;
+  }
+
+  .number-item:first-child { border-radius: 20px 0 0 20px; }
+  .number-item:last-child { border-radius: 0 20px 20px 0; }
+
+  .num-val {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .num-label {
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+
+  /* SERVICES */
+  .services { background: #fff; }
+
+  .services-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    border: 1.5px solid rgba(31,0,56,0.08);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: transparent;
+    box-shadow: 0 20px 50px rgba(31,0,56,0.1);
+    transform: translateY(-6px);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    background: var(--grad);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--roxo);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* DIFERENCIAIS */
+  .diferenciais { background: var(--cinza-claro); }
+
+  .dif-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .dif-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: all 0.3s;
+  }
+
+  .dif-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(31,0,56,0.08);
+  }
+
+  .dif-card.featured {
+    background: var(--roxo);
+    color: #fff;
+    grid-column: span 2;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 48px;
+  }
+
+  .dif-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(171,18,174,0.08);
+    border-radius: 14px;
+  }
+
+  .dif-card.featured .dif-icon {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .dif-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--roxo);
+    margin-bottom: 8px;
+  }
+
+  .dif-card.featured .dif-content h3 {
+    color: #fff;
+    font-size: 1.4rem;
+  }
+
+  .dif-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .dif-card.featured .dif-content p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+  }
+
+  .price-big {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 10px 0;
+    line-height: 1;
+  }
+
+  /* COMO FUNCIONA */
+  .como { background: #fff; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--magenta), var(--laranja), var(--amarelo));
+    opacity: 0.3;
+  }
+
+  .step {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--grad);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(171,18,174,0.35);
+  }
+
+  .step h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--roxo);
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 0.85rem;
+    color: #777;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: var(--roxo);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 120px 6%;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: -150px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: var(--grad);
+    border-radius: 50%;
+    opacity: 0.12;
+    filter: blur(60px);
+  }
+
+  .cta-final h2 {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .cta-final p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    position: relative;
+  }
+
+  .cta-final .btn-primary {
+    position: relative;
+    font-size: 1.05rem;
+    padding: 18px 40px;
+    background: var(--grad);
+    box-shadow: 0 12px 40px rgba(171,18,174,0.5);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0d0015;
+    padding: 40px 6%;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+  }
+
+  /* FLOATING WPP */
+  .wpp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 999;
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.25s;
+    animation: floatUp 0.6s 1s both;
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .wpp-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.55);
+  }
+
+  .wpp-float svg {
+    width: 30px; height: 30px;
+    fill: #fff;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.7s forwards;
+  }
+
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .services-head { grid-template-columns: 1fr; gap: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .dif-grid { grid-template-columns: 1fr; }
+    .dif-card.featured { grid-column: span 1; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .steps::before { display: none; }
+    .numbers-inner { grid-template-columns: 1fr; gap: 2px; }
+    .number-item:first-child { border-radius: 20px 20px 0 0; }
+    .number-item:last-child { border-radius: 0 0 20px 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    h1 { letter-spacing: -0.5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">L.I Leads Imobiliários</div>
+  <a href="#contato" class="nav-cta">Quero mais leads →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag fade-in">Especialistas em mercado imobiliário</div>
+      <h1 class="fade-in delay-1">
+        Seu imóvel na frente de <span class="accent">quem realmente quer comprar</span>
+      </h1>
+      <p class="hero-sub fade-in delay-2">
+        Gestão estratégica de tráfego pago no Meta + Social Media para corretores e imobiliárias que querem resultados reais, sem enrolação.
+      </p>
+      <div class="hero-btns fade-in delay-3">
+        <a href="#contato" class="btn-primary">
+          <span>Quero gerar leads</span>
+          <span>→</span>
+        </a>
+        <a href="#servicos" class="btn-secondary">Ver o que fazemos</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in delay-4">
+      <div class="hero-card">
+        <div class="hero-card-logo">L.I Leads Imobiliários</div>
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="metric-val">3x</div>
+            <div class="metric-label">Mais alcance orgânico</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">↑92%</div>
+            <div class="metric-label">Leads qualificados</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">Meta</div>
+            <div class="metric-label">Ads otimizados</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">BH</div>
+            <div class="metric-label">Foco local + nacional</div>
+          </div>
+        </div>
+        <div class="card-tag">
+          ✦ Campanha ativa agora
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<div class="numbers">
+  <div class="numbers-inner">
+    <div class="number-item">
+      <span class="num-val">Meta</span>
+      <span class="num-label">Plataforma de anúncios gerenciada</span>
+    </div>
+    <div class="number-item">
+      <span class="num-val">100%</span>
+      <span class="num-label">Foco no mercado imobiliário</span>
+    </div>
+    <div class="number-item">
+      <span class="num-val">Sem</span>
+      <span class="num-label">Fidelidade ou prazo mínimo</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="services" id="servicos">
+  <div class="section-inner">
+    <div class="services-head">
+      <div>
+        <div class="section-tag">O que fazemos</div>
+        <h2>Tudo que você precisa para vender mais online</h2>
+      </div>
+      <p class="section-desc">
+        Cuidamos do digital para você focar no que sabe fazer melhor: vender imóveis e atender seus clientes.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📣</div>
+        <h3>Tráfego Pago Meta</h3>
+        <p>Criação, monitoramento e otimização de campanhas no Facebook e Instagram para atrair compradores e locatários reais.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Gestão de Social Media</h3>
+        <p>Estratégia de conteúdo para posicionar sua marca como referência no mercado imobiliário da sua região.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>SEO Imobiliário</h3>
+        <p>Otimização para que seu perfil e páginas apareçam nas buscas de quem procura imóveis ativamente.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Configuração de Campanhas</h3>
+        <p>Estruturação técnica completa: públicos, criativos, orçamento e segmentação para o mercado imobiliário.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Monitoramento Contínuo</h3>
+        <p>Acompanhamento diário dos resultados com ajustes em tempo real para maximizar o retorno da sua verba.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Relatórios de Performance</h3>
+        <p>Relatórios claros e objetivos para você saber exatamente quanto está investindo e o que está retornando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="section-inner">
+    <div class="section-tag">Por que a L.I</div>
+    <h2>Sem enrolação. Sem fidelidade.<br>Só resultado.</h2>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-icon">🚫</div>
+        <div class="dif-content">
+          <h3>Sem período de fidelidade</h3>
+          <p>Você pode cancelar a qualquer momento com 30 dias de aviso. Ficamos porque entregamos resultado, não porque você é obrigado.</p>
+        </div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">💰</div>
+        <div class="dif-content">
+          <h3>Verba 100% sua</h3>
+          <p>Você paga a verba de mídia diretamente ao Meta. Sem margem escondida, sem comissão em cima do seu dinheiro.</p>
+        </div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">🏠</div>
+        <div class="dif-content">
+          <h3>Especialistas em imóveis</h3>
+          <p>Não somos uma agência generalista. Entendemos o ciclo de vendas imobiliário, a linguagem do comprador e o comportamento do mercado de BH.</p>
+        </div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon">📞</div>
+        <div class="dif-content">
+          <h3>Comunicação direta</h3>
+          <p>Acesso direto ao gestor responsável pela sua conta. Sem terceiros, sem robôs, sem demora para responder.</p>
+        </div>
+      </div>
+      <div class="dif-card featured">
+        <div class="dif-icon">✦</div>
+        <div class="dif-content">
+          <h3>Investimento mensal</h3>
+          <div class="price-big">R$ 1.500</div>
+          <p>Gestão completa de tráfego pago + Social Media + SEO. Sem taxa de setup, sem surpresas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como">
+  <div class="section-inner">
+    <div style="text-align: center; margin-bottom: 10px;">
+      <div class="section-tag">Processo</div>
+      <h2>Como funciona</h2>
+      <p class="section-desc" style="margin: 16px auto 0;">Da conversa à primeira campanha no ar em poucos dias.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Diagnóstico grátis</h3>
+        <p>Analisamos sua presença digital atual e o potencial do seu negócio no digital.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Planejamento</h3>
+        <p>Montamos a estratégia de campanhas personalizada para o seu perfil e região.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Campanha no ar</h3>
+        <p>Configuramos e publicamos. Sua marca começa a aparecer para os compradores certos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Otimização contínua</h3>
+        <p>Monitoramos, ajustamos e reportamos os resultados mensalmente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="section-inner">
+    <h2>Pronto para gerar<br>mais leads imobiliários?</h2>
+    <p>Fale agora com a equipe da L.I e receba uma análise gratuita do seu digital.</p>
+    <a href="https://wa.me/5531983056470?text=Olá!%20Vim%20pelo%20site%20da%20L.I%20Leads%20Imobiliários%20e%20quero%20saber%20mais." class="btn-primary" target="_blank">
+      <span>💬 Falar no WhatsApp</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">L.I Leads Imobiliários</div>
+  <p>VNB Group LTDA · CNPJ 66.092.021/0001-92 · Belo Horizonte, MG</p>
+  <p style="margin-top: 8px;">© 2026 L.I Leads Imobiliários. Todos os direitos reservados.</p>
+</footer>
+
+<!-- FLOAT WPP -->
+<a href="https://wa.me/5531983056470?text=Olá!%20Vim%20pelo%20site%20da%20L.I%20Leads%20Imobiliários%20e%20quero%20saber%20mais." class="wpp-float" target="_blank" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
