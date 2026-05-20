@@ -67,8 +67,8 @@ export default function Hero() {
           </div>
         </div>
         <div className="mt-20 text-center">
-          {/* Certifique-se de que a imagem se chama 'meta-logos.png' e está na pasta public/images */}
-          <Image src="/images/meta-logos.png" alt="Logos de Meta, Facebook e Instagram" width={500} height={50} className="mx-auto" />
+          {/* Certifique-se de que a imagem se chama 'meta-logos-f2.png' e está na pasta public/images */}
+          <Image src="/images/meta-logos-f2.png" alt="Logos de Meta, Facebook e Instagram" width={500} height={50} className="mx-auto" />
         </div>
       </div>
     </section>
