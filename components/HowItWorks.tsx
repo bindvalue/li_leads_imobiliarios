@@ -20,7 +20,7 @@ export default function HowItWorks() {
 
           {steps.map((step, i) => (
             <div key={i} className="relative text-center px-4">
-              <div className="w-12 h-12 mx-auto bg-slate-900 text-white rounded-full flex items-center justify-center font-semibold text-lg mb-6 relative z-10 shadow-md">
+              <div className="w-12 h-12 mx-auto bg-gradient-to-r from-[#B31D98] to-[#F5B049] text-white rounded-full flex items-center justify-center font-semibold text-lg mb-6 relative z-10 shadow-lg shadow-[#B31D98]/40">
                 {step.num}
               </div>
               <h3 className="text-lg font-semibold tracking-tight text-slate-900 mb-3">{step.title}</h3>
