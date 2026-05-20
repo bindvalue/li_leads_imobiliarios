@@ -21,6 +21,9 @@ export default function Hero() {
             <p className="text-lg text-slate-600 leading-relaxed mb-10 font-light max-w-lg">
               Gestão estratégica de tráfego pago no Meta + Social Media para corretores e imobiliárias que querem resultados reais, sem enrolação.
             </p>
+            <div className="mb-10">
+              <Image src="/images/meta-logos-f3.png" alt="Meta e Redes Sociais" width={320} height={40} className="w-full max-w-64 md:max-w-xs h-auto object-contain opacity-80" />
+            </div>
             <div className="flex flex-wrap gap-4">
               <a href="#contato" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-sm hover:shadow-md">
                 <span>Quero gerar leads</span>
@@ -65,10 +68,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-20 text-center">
-          {/* Certifique-se de que a imagem se chama 'meta-logos-f2.png' e está na pasta public/images */}
-          <Image src="/images/meta-logos-f2.png" alt="Logos de Meta, Facebook e Instagram" width={500} height={50} className="mx-auto" />
         </div>
       </div>
     </section>
