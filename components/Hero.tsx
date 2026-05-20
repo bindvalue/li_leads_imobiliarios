@@ -31,29 +31,35 @@ export default function Hero() {
         </div>
 
         <div className="relative hidden md:block">
-          <div className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 rounded-3xl p-10 text-white shadow-2xl relative overflow-hidden border border-purple-800/50">
-            <div className="absolute -top-24 -right-24 w-56 h-56 bg-fuchsia-500/40 rounded-full blur-3xl" />
-            <div className="font-semibold text-xl tracking-tight mb-8">L.I Leads</div>
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
-                <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><TrendingUp strokeWidth={1.5} className="w-6 h-6 text-[#B31D98]"/> 3x</div>
-                <div className="text-xs text-slate-400 mt-2">Mais alcance orgânico</div>
+          <div className="bg-slate-900 rounded-3xl shadow-2xl relative overflow-hidden">
+            {/* Aurora Light Blobs */}
+            <div className="absolute top-0 -left-1/4 w-96 h-96 bg-[#B31D98] rounded-full opacity-40 blur-[80px] animate-blob1" />
+            <div className="absolute bottom-0 -right-1/4 w-96 h-96 bg-[#F5B049] rounded-full opacity-40 blur-[80px] animate-blob2" />
+
+            {/* Glassmorphism Content Layer */}
+            <div className="relative z-10 p-10 bg-black/20 backdrop-blur-md border border-white/10 h-full text-white">
+              <div className="font-semibold text-xl tracking-tight mb-8">L.I Leads</div>
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><TrendingUp strokeWidth={1.5} className="w-6 h-6 text-[#B31D98]"/> 3x</div>
+                  <div className="text-xs text-slate-400 mt-2">Mais alcance orgânico</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><Target strokeWidth={1.5} className="w-6 h-6 text-[#F5B049]"/> 92%</div>
+                  <div className="text-xs text-slate-400 mt-2">Leads qualificados</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><Crosshair strokeWidth={1.5} className="w-6 h-6 text-[#B31D98]"/> Meta</div>
+                  <div className="text-xs text-slate-400 mt-2">Ads otimizados</div>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
+                  <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><MapPin strokeWidth={1.5} className="w-6 h-6 text-[#F5B049]"/> BH</div>
+                  <div className="text-xs text-slate-400 mt-2">Foco local + nacional</div>
+                </div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
-                <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><Target strokeWidth={1.5} className="w-6 h-6 text-[#F5B049]"/> 92%</div>
-                <div className="text-xs text-slate-400 mt-2">Leads qualificados</div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium tracking-wide">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Campanha ativa agora
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
-                <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><Crosshair strokeWidth={1.5} className="w-6 h-6 text-[#B31D98]"/> Meta</div>
-                <div className="text-xs text-slate-400 mt-2">Ads otimizados</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-sm">
-                <div className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#B31D98] to-[#F5B049] bg-clip-text text-transparent flex items-center gap-2"><MapPin strokeWidth={1.5} className="w-6 h-6 text-[#F5B049]"/> BH</div>
-                <div className="text-xs text-slate-400 mt-2">Foco local + nacional</div>
-              </div>
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Campanha ativa agora
             </div>
           </div>
         </div>
